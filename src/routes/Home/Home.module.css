@@ -1,0 +1,220 @@
+.Hero {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.HeroContent {
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    order: 2
+}
+
+.ContentTitle {
+    font-size: 35px;
+}
+
+.HeroContent p {
+    font-size: 14px;
+    margin-top: 14px;
+    line-height: 22px;
+    font-weight: 100;
+}
+
+.HeroAction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.HeroPrice {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.Container {
+    order: 1;
+    padding-left: 0;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.HeroImg {
+    margin: auto;
+    width: 60%;
+    position: relative;
+    display: flex;
+    /* align-items: center; */
+    height: 100%;
+}
+
+.HeroEcc {
+    width: 100%;
+    height: 100%;
+    /* width: 400px;
+    height: 400px; */
+    fill: white;
+    position: absolute;
+    z-index: 1;
+    opacity: .5;
+    object-fit: contain;
+}
+
+.Ecc2 {
+    top: -20px;
+}
+
+.Ecc3 {
+    top: -45px;
+}
+
+.HeroCut {
+    width: 100%;
+    height: 100%;
+    /* width: 400px;
+    height: 400px; */
+    z-index: 2;
+    object-fit: contain;
+}
+
+.Menu {
+    padding: 15px 20px;
+    width: 100%;
+    background-color: #FEBE00;
+    border-radius: 25px;
+    margin-top: 70px;
+}
+
+.Offers {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    width: 100%;
+}
+
+
+@media (min-width: 500px) {
+    .Hero {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .HeroContent {
+        order: 2;
+        min-height: 0;
+    }
+
+    .Container {
+        order: 1;
+        padding-left: 0;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .HeroImg {
+        margin: auto;
+        width: 60%
+    }
+
+    .Ecc2 {
+        top: -30px;
+    }
+
+    .Ecc3 {
+        top: -60px;
+    }
+
+    .HeroContent {
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .HeroContent p {
+        font-size: 14px;
+        margin-top: 14px;
+    }
+
+    .ContentTitle {
+        font-size: 40px;
+    }
+
+    .Menu {
+        padding: 25px 20px;
+    }
+}
+
+
+@media (min-width: 800px) {
+    .HeroContent p {
+        font-size: 15px;
+    }
+
+    .ContentTitle {
+        font-size: 45px;
+    }
+
+    .Container {
+        padding-left: 100px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .Hero {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .HeroContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 35%;
+        min-height: 450px;
+        order: 1
+    }
+
+    .HeroContent p {
+        font-size: 17px;
+        line-height: 22px;
+        font-weight: 100;
+        margin-top: 20px;
+    }
+
+    .HeroImg {
+        position: relative;
+        display: flex;
+        /* align-items: center; */
+        width: 400px;
+        height: 400px;
+    }
+
+    .ContentTitle {
+        font-size: 50px;
+        text-overflow: wrap;
+    }
+
+    .Container {
+        padding-left: 130px;
+        order: 2;
+        width: 65%;
+        margin-top: 25px;
+    }
+
+    .Ecc2 {
+        top: -50px;
+    }
+
+    .Ecc3 {
+        top: -100px;
+    }
+}
