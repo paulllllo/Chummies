@@ -98,6 +98,10 @@
     width: 100%;
 }
 
+.Testimonials {
+    width: 100%;
+    margin-top: 100px;
+}
 
 @media (min-width: 500px) {
     .Hero {
@@ -150,6 +154,11 @@
     .Menu {
         padding: 25px 20px;
     }
+
+    .Testimonials {
+        width: 100%;
+        margin-top: 120px;
+    }
 }
 
 
@@ -164,6 +173,11 @@
 
     .Container {
         padding-left: 100px;
+    }
+
+    .Testimonials {
+        width: 100%;
+        margin-top: 150px;
     }
 }
 

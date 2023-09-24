@@ -8,6 +8,7 @@ import Button from '../../../components/UI/button/Button'
 import { cartLengthState } from '../../../state/selectors'
 import { cartState } from '../../../state/atoms'
 import { formatPrice } from '../../../utils/utils'
+import ImageComponent from '../../../utils/imageProcess'
 
 
 const Edit = () => {
@@ -36,7 +37,6 @@ const Edit = () => {
         pack['id'] = id
 
 
-        // console.log(pack);
         setCart(prevCart => {
             const newCart = prevCart.filter(cartItem => cartItem.id !== id)
             return [...newCart, pack]
@@ -75,7 +75,6 @@ const Edit = () => {
         // setFood(foodArr[0])
 
         if (location.state) {
-            console.log(location)
             if (!('foodData' in location.state))
                 navigate('/')
             setPlate(location.state.plate)
@@ -90,7 +89,6 @@ const Edit = () => {
     useEffect(() => {
         let total = 0
         if (food.base) {
-            // console.log('food.base.price=', food.base.price)
             total += food.base.price
         }
         plate.forEach(item => {
@@ -108,6 +106,7 @@ const Edit = () => {
                     <div className={styles.Customize}>
                         <div className={styles.Options}>
                             <div className={styles.FoodImg}>
+                            <ImageComponent src={food.image.src} desc={food.image.desc} blurHash={food.image.blurHash} />
                                 <img src={food.image} alt={food.name} />
                             </div>
                             <div className={styles.Garnishes}>

@@ -2,6 +2,7 @@ import React from 'react'
 
 import rounded from '../../Assets/rounded.svg'
 import styles from './Offer.module.css'
+import ImageComponent from '../../utils/imageProcess'
 
 const Offer = ({title, desc, image}) => {
     return (
@@ -10,7 +11,8 @@ const Offer = ({title, desc, image}) => {
                 <img className={styles.Rounded1} src={rounded} alt='square' />
                 <img className={styles.Rounded2} src={rounded} alt='square' />
                 <div className={styles.OfferPic}>
-                    <img src={image} alt='people' />
+                <ImageComponent src={image.src} desc={image.desc} blurHash={image.blurHash} />
+                    {/* <img src={image} alt='people' /> */}
                 </div>
             </div>
             <div className={styles.OfferText}>

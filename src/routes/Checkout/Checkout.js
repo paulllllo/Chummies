@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../../components/layout/Layout'
 import styles from './Checkout.module.css'
 import Button from '../../components/UI/button/Button'
-import Stew from '../../Assets/Stew.png'
 import { checkValidity, checkoutInfoFormat, formatDate, formatPrice } from '../../utils/utils'
 import Input from '../../components/UI/input/Input'
 import { useRecoilState } from 'recoil'
@@ -35,7 +34,6 @@ const Checkout = () => {
 		cart.forEach(item => {
 			total += item.totalPrice
 		})
-		console.log('total', total);
 		return total
 	}
 
@@ -66,7 +64,6 @@ const Checkout = () => {
 				order_total: formatPrice(purchaseInfo.totalPrice),
 				order_time: formatDate(purchaseInfo.date)
 			});
-			console.log("email successfully sent to owner check inbox");
 		} catch (error) {
 			console.log(error);
 		}
@@ -82,7 +79,6 @@ const Checkout = () => {
 				order_details: parseOrders(),
 				order_total: formatPrice(purchaseInfo.totalPrice)
 			});
-			console.log("email successfully sent to user check inbox");
 		} catch (error) {
 			console.log(error);
 		}
@@ -91,18 +87,12 @@ const Checkout = () => {
 
 // 								Saves input info to db
 	const saveToDB = async (input) => {
-		console.log('db: ', db);
-		// db.collection("Orders").add({
-		// 	id: uuid(),
-		// 	data: input
-		// });
 
 		try {
 			const docRef = await addDoc(collection(db, "orders"), {
 				id: uuid(),
 				data: input
 			});
-			console.log("Document written with ID: ", docRef.id);
 		} catch (e) {
 			console.error("Error adding document: ", e);
 		}
@@ -301,7 +291,6 @@ const Checkout = () => {
 							</div>
 						</div>
 					</div>
-					{console.log('formvalid is ', formValid)}
 				</div>
 				<div className={styles.CheckoutInfo}>
 					<div className={styles.FormContainer}>

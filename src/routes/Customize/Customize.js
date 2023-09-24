@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../../components/layout/Layout'
 import styles from './Customize.module.css'
 import Button from '../../components/UI/button/Button'
-import Stew from '../../Assets/Stew.png'
 import { foodsInfo } from '../../utils/data'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { cartLengthState } from '../../state/selectors'
 import { cartState, notifState } from '../../state/atoms'
 import { formatPrice } from '../../utils/utils'
+import ImageComponent from '../../utils/imageProcess'
 
 
 const Customize = () => {
@@ -39,7 +39,6 @@ const Customize = () => {
 		pack['id'] = cart.length + 1
 
 
-		console.log(pack);
 		setCart(prevCart => [...prevCart, pack])
 		setPlate([])
 		navigate('/')
@@ -83,7 +82,6 @@ const Customize = () => {
 	useEffect(() => {
 		let total = 0
 		if (food.base){
-			// console.log('food.base.price=', food.base.price)
 			total += food.base.price
 		}
 		plate.forEach(item => {
@@ -101,7 +99,8 @@ const Customize = () => {
 					<div className={styles.Customize}>
 						<div className={styles.Options}>
 							<div className={styles.FoodImg}>
-								<img src={food.image} alt={food.name} />
+							<ImageComponent src={food.image.src} desc={food.image.desc} blurHash={food.image.blurHash} />
+								{/* <img src={food.image} alt={food.name} /> */}
 							</div>
 							<div className={styles.Garnishes}>
 								<p>Click on a garnish to add to your plate</p>

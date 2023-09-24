@@ -2,12 +2,12 @@ import React from 'react'
 
 import Layout from '../../components/layout/Layout'
 import styles from './Cart.module.css'
-import Stew from '../../Assets/Stew.png'
 import { useRecoilState } from 'recoil'
 import { cartState } from '../../state/atoms'
 import { formatPrice } from '../../utils/utils'
 import Button from '../../components/UI/button/Button'
 import { useNavigate } from 'react-router-dom'
+import ImageComponent from '../../utils/imageProcess'
 
 const Cart = () => {
     const [cart, setCart] = useRecoilState(cartState)
@@ -32,7 +32,6 @@ const Cart = () => {
         cart.forEach(item => {
             total += item.totalPrice
         })
-        console.log('total', total);
         return total
     }
 
@@ -43,7 +42,6 @@ const Cart = () => {
 
     return (
         <Layout>
-            {console.log(cart)}
             <p className={styles.Title}>
                 Cart
             </p>
@@ -57,7 +55,8 @@ const Cart = () => {
                             {cart.map(item => {
                                 return <div key={item.id} className={styles.CartItem}>
                                     <div className={styles.ItemImg}>
-                                        <img src={item.foodData.image} alt={item.foodData.name} />
+                                    <ImageComponent src={item.foodData.image.src} desc={item.foodData.image.desc} blurHash={item.foodData.image.blurHash} />
+                                        {/* <img src={item.foodData.image} alt={item.foodData.name} /> */}
                                     </div>
                                     <div className={styles.ItemDetails}>
                                         <span className={styles.ItemTitle}>{item.foodData.name}</span>

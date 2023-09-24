@@ -8,11 +8,14 @@ import eclipse from '../../Assets/eclipse.svg'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Offer from '../../components/Offer/Offer'
-import { foodsInfo, heroSlides, menuCards, offers } from '../../utils/data'
+import { foodsInfo, heroSlides, menuCards, offers, testimonials } from '../../utils/data'
 import { formatPrice } from '../../utils/utils'
 import { useRecoilState } from 'recoil'
 import { cartState, notifState } from '../../state/atoms'
 import { useNavigate } from 'react-router-dom'
+import { heroResponsive, testimonialResponsive } from '../../utils/slider'
+import Testimonial from '../../components/Testimonial/Testimonial'
+import ImageComponent from '../../utils/imageProcess'
 
 
 
@@ -27,27 +30,6 @@ const Home = () => {
 	const rotateHero = (slides, next) => {
 		setHeroSlide(slides[next]);
 	}
-
-	// 						Responsiveness object for slider
-	const responsive = {
-		superLargeDesktop: {
-			// the naming can be any, depends on you.
-			breakpoint: { max: 4000, min: 1024 },
-			items: 5
-		},
-		desktop: {
-			breakpoint: { max: 1024, min: 800 },
-			items: 4
-		},
-		tablet: {
-			breakpoint: { max: 800, min: 600 },
-			items: 3
-		},
-		mobile: {
-			breakpoint: { max: 600, min: 0 },
-			items: 2
-		}
-	};
 
 
 
@@ -74,7 +56,6 @@ const Home = () => {
 		const getTotalPrice = () => {
 			let total = 0
 			if (food.base) {
-				// console.log('food.base.price=', food.base.price)
 				total += food.base.price
 			}
 			plate.forEach(item => {
@@ -133,8 +114,8 @@ const Home = () => {
 				</div>
 				<div className={styles.Container}>
 					<div className={styles.HeroImg}>
-						{/* <svg className={styles.Ecc1} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149.42 149.42"><defs><style></style></defs><title>eclipse</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-1" cx="74.71" cy="74.71" r="74.58" /></g></g></svg> */}
-						<img className={styles.HeroCut} src={heroSlide.image} alt='food Image' />
+						<ImageComponent style={styles.HeroCut} src={heroSlide.image.src} desc={heroSlide.image.desc} blurHash={heroSlide.image.blurHash} width={400} height={400} />
+						{/* <img className={styles.HeroCut} src={heroSlide.image.src} alt='food Image' /> */}
 						<img className={`${styles.HeroEcc} ${styles.Ecc1}`} src={eclipse} alt='eclipse' />
 						<img className={`${styles.HeroEcc} ${styles.Ecc2}`} src={eclipse} alt='eclipse' />
 						<img className={`${styles.HeroEcc} ${styles.Ecc3}`} src={eclipse} alt='eclipse' />
@@ -145,7 +126,7 @@ const Home = () => {
 				<Carousel
 					// containerClass={styles.Menu}
 					// itemClass={styles.MenuItem}
-					responsive={responsive}
+					responsive={heroResponsive}
 				// centerMode={true}
 				>
 					{menuCards.map((card, index) => (
@@ -167,6 +148,24 @@ const Home = () => {
 						desc={offer.desc}
 						image={offer.image} />
 				))}
+			</div>
+
+			<div className={styles.Testimonials}>
+				<Carousel 
+				responsive={testimonialResponsive}
+				autoPlay={true}
+				autoPlaySpeed={7000}
+				infinite={true}
+				transitionDuration={1000}
+				removeArrowOnDeviceType={['mobile']}>
+					{testimonials.map(item => {
+						return <Testimonial 
+						key={item.id}
+						author={item.author}
+						role={item.role}
+						text={item.text}/>
+					})}
+				</Carousel>
 			</div>
 
 		</Layout>
