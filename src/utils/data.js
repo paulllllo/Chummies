@@ -135,6 +135,20 @@ export const menuCards = [
 		title: 'Nkwobi',
 		price: 5000,
 		image: images.nkwobi
+	},
+    {
+        id: '1',
+		name: 'Abacha',
+		title: 'Abacha Enugu',
+		price: 4000,
+		image: images.abacha
+	},
+    {
+        id:'2',
+		name: 'Nkwobi',
+		title: 'Nkwobi',
+		price: 5000,
+		image: images.nkwobi
 	}
 ]
 
