@@ -27,8 +27,8 @@ const Home = () => {
 
 	const navigate = useNavigate()
 
-	const rotateHero = (slides, next) => {
-		setHeroSlide(slides[next]);
+	const rotateHero = async (slides, next) => {
+		await setHeroSlide(oldSlide => slides[next]);
 	}
 
 
